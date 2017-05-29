@@ -8,8 +8,14 @@
 
 ticks = ["▁", "▂", "▃", "▄", "▅", "▆ ", "▇ ", "█"]
 
-def graph(env, args, kwargs):
-    args = [int(x) for x in args]
+def main(argc):
+    """graph: Graph numbers in your terminal.
+    
+    Usage:
+        graph NUMBERS...
+    """
+    
+    args = [int(x) for x in argc.args['NUMBERS']]
     
     low = min(args)
     high = max(args)
@@ -27,5 +33,3 @@ def graph(env, args, kwargs):
                 if low + i * step <= arg <= low + (i+1) * step:
                     s += ticks[i]
         return s
-                    
-verbs = {"graph": graph}
